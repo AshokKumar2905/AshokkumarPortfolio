@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ashok kumar Portfolio</title>
+  <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-family: 'Open Sans', serif;
+      background-color: black;
+      color: #ddd;
+      padding-top: 54px;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #334155, #1e293b);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transform: translate();
+    }
+
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      /* animation: fadeIn 2s ease-in-out; */
+      transform: scale(1.5s);
+      /* transform: translateZ(50%); */
+      transform: translateX(-100%);
+      opacity: 0;
+      animation: slide-in 1s ease-out forwards;
+    }
+
+    @keyframes slide-in {
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* nav */
+    nav {
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100%;
+      padding: 1rem 0;
+      padding-top: 5%;
+    }
+
+    nav ul {
+      display: flex;
+      flex-direction: column;
+      /* Stack items vertically */
+      align-items: flex-start;
+      /* Align items to the left */
+      margin: 0;
+      padding: 0;
+      list-style-type: circle;
+      /* Remove bullet points */
+    }
+
+    nav ul li {
+      margin: 1rem 0;
+      /* Space between items */
+    }
+
+    nav ul li a {
+      position: fixed;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      display: flex;
+      transition: color 0.3s, background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+      background-color: darkslategrey;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #f97316, #f59e0b);
+      color: white;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    .hero img {
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 100px;
+      border: 20px solid #3b5998;
+      margin: 1rem auto;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      margin: 1rem 0;
+      transform: scale(5);
+      animation: pulse 2s infinite;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .hero .cta a {
+      color: white;
+      background-color: #FF5733;
+      padding: 0.5rem 1.5rem;
+      font-weight: bold;
+      margin: 0 0.5rem;
+      border-radius: 5px;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .hero .cta a:hover {
+      transform: scale(2);
+      background-color: #ffcc00;
+    }
+
+    #phero {
+      color: white;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+
+    h2,
+    h3 {
+      margin-bottom: 1rem;
+      color: #c3ff00;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover {
+      color: #007BFF;
+    }
+
+
+    /* About Section */
+    #about {
+      padding: 4rem 2rem;
+      background-color: black;
+      color: white;
+    }
+
+    #about h1 {
+      font-weight: bold;
+      color: yellow;
+    }
+
+    #about p {
+      line-height: 1.6;
+    }
+
+
+    /* Section Styles */
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, #14b8a6, #0f766e);
+    }
+
+    #pabout {
+      color: white;
+    }
+
+    #h1about {
+      color: yellowgreen;
+    }
+
+    /* Skills Section */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: salmon;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    .skill-card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05) rotate(3deg);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Skills Section */
+    .skill-card {
+      background: salmon;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .skill-card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05) rotate(3deg);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Portfolio Section */
+    /* .portfolio {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        }
+        .project-card {
+        background: #fff;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        border-radius: 8px;
+        width: 250px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        animation: fadeInUp 1.5s ease-in-out;
+        }
+        .project-card img {
+        max-width: 100%;
+        border-radius: 5px;
+        margin-bottom: 0.5rem;
+        }
+        .project-card:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        } */
+
+    /* Contact Section */
+    #contact ul li a {
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    #contact ul li a:hover {
+      color: #ff5733;
+    }
+
+    .contact {
+      padding: 2rem;
+      text-align: center;
+      background: linear-gradient(to bottom right, #5b2565, #0f0e13);
+      ;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #334155, #1e293b);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    footer .footer-links a {
+      color: white;
+      margin: 0 0.5rem;
+      transition: color 0.3s;
+    }
+
+    footer .footer-links a:hover {
+      color: #ffcc00;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 20px;
+      }
+      nav{
+        display: none;
+      }
+      .cta{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      body {
+        padding-top: 0;
+        padding-left: 8rem;
+      }
+      nav{
+        display: none;
+      }
+      .cta{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(0.9);
+      }
+
+      50% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <h1 id="name">Ashok Kumar D</h1>
+    </div>
+  </header>
+  <!-- nav -->
+  <div>
+    <nav>
+      <ul>
+        <li><a href=".hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <!-- <li><a href="#portfolio">Portfolio</a></li> -->
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="./asserts/photo.jpeg">
+    <h1 id="h1hero">Hello, I'm Ashok Kumar D.</h1>
+    <p id="phero">Creative Full Stack Python Developer</p>
+    <div class="cta">
+      <a href="#portfolio">View My Work</a>
+      <a href="#contact" style="margin-left: 1rem;">Let's Connect</a>
+      <a href="https://drive.google.com/file/d/1F64Xpd2m8RFb0lQCOS85o22TYcn30zJT/view?usp=drivesdk"
+        style="margin-left: 3rem;">Download CV</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+
+    <div class="section">
+      <h1 id="h1about">About Me</h1>
+      <p id="pabout">I am <strong>Ashok Kumar D</strong>, a passionate and enthusiastic software engineer with a strong
+        foundation in both front-end and back-end development. As a recent graduate, I bring hands-on experience in
+        developing innovative solutions for software projects. My expertise lies in full-stack development, combining
+        creativity and technical knowledge to deliver impactful results.</p>
+    </div>
+
+    <div class="section">
+      <h2>Key Skills & Expertise</h2>
+      <ul>
+        <li><strong>Programming Languages:</strong> Proficient in Python and Oracle SQL with hands-on experience in
+          Python libraries, SQL operations, and database management.</li>
+        <li><strong>Web Development:</strong> Skilled in HTML, CSS, and JavaScript for creating responsive and
+          user-friendly interfaces.</li>
+        <li><strong>Agile Methodologies:</strong> Experienced in Scrum and Kanban, emphasizing teamwork and iterative
+          project development.</li>
+        <li><strong>Technologies & Tools:</strong> Familiar with Flask, machine learning, neural networks, and web
+          hosting platforms.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Educational Background</h2>
+      <ul>
+        <li><strong>B.E. in Computer Science and Engineering (2020–2024):</strong> CGPA: 8.4 - Karpaga Vinayaga College
+          of Engineering and Technology</li>
+        <li><strong>Higher Secondary Certificate (2019–2020):</strong> Percentage: 56 - National Higher Secondary
+          School, Mannargudi</li>
+        <li><strong>Secondary School Certificate (2017–2018):</strong> Percentage: 82 - SBV High School, Mannargudi</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>My Journey</h2>
+      <p>During my academic journey, I undertook various projects that honed my problem-solving and technical skills:
+      </p>
+      <ul>
+        <li><strong>Mini Project:</strong> Using machine learning for unsolicited email detection (Google Colab).</li>
+        <li><strong>Main Project:</strong> Extractive text summarization using neural networks and Flask.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Professional Experience</h2>
+      <ul>
+        <li><strong>Full Stack Development Internship:</strong> Python AT QSpiders Chrompet (2024–Ongoing)</li>
+        <li><strong>Web Development Internship:</strong> GMI Softlabs, Kodambakkam (2023–2023)</li>Gained expertise in
+        WordPress, hosting, and Agile methodologies.
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Vision</h2>
+      <p>I am deeply committed to leveraging my skills to build collaborative, innovative, and scalable software
+        solutions. With a passion for continuous learning and teamwork, I aim to contribute meaningfully to projects
+        that shape the future of technology.</p>
+    </div>
+
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <h2>My Skills</h2>
+    <div class="skills">
+      <div class="skills">
+        <div class="skill-card">
+          <img src="./asserts/python.png" alt="Python Icon" />
+          <h3>Python</h3>
+          <p>Expert in writing efficient, clean, and scalable Python code for various applications, including web
+            development and automation.</p>
+        </div>
+        <div class="skill-card">
+          <img src="./asserts/sql.png" alt="Oracle SQL Icon" />
+          <h3>Oracle SQL</h3>
+          <p>Strong knowledge of database management, creating queries, and optimizing database performance.</p>
+        </div>
+        <div class="skill-card">
+          <img src="./asserts/html.png" alt="HTML5 Icon" />
+          <h3>HTML5</h3>
+          <p>Proficient in creating semantic, accessible, and well-structured web pages.</p>
+        </div>
+        <div class="skill-card">
+          <img src="./asserts/css.png" alt="CSS3 Icon" />
+          <h3>CSS3</h3>
+          <p>Skilled in crafting responsive and visually appealing designs with CSS frameworks and custom styling.</p>
+        </div>
+        <div class="skill-card">
+          <img src="./asserts/js.png" alt="JavaScript Icon" />
+          <h3>JavaScript</h3>
+          <p>Experienced in adding interactivity and advanced functionality to web applications using vanilla JavaScript
+            and frameworks.</p>
+        </div>
+        <div class="skill-card">
+          <img src="./asserts/agile.jpeg" alt="SDLC Icon" />
+          <h3>SDLC</h3>
+          <p>Thorough understanding of Software Development Life Cycle phases, including planning, design, development,
+            and deployment.</p>
+        </div>
+      </div>
+  </section>
+  </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <!-- <section id="portfolio" class="section">
+        <h2>My Projects</h2>
+        <div class="portfolio">
+            <div class="project-card">
+                <img src="" alt="Project 1">
+                <h3>Project 1</h3>
+                <p></p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="" alt="Project 2">
+                <h3>Project 2</h3>
+                <p></p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+    </section> -->
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <ul>
+      <li><a href="https://twitter.com/https://x.com/AK290545" target="_blank">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/in/ashokkumar2905/"
+          target="_blank">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/ashok_6876/"
+          target="_blank">Instagram</a></li>
+      <li><a href="https://t.me/@Ashok_2905" target="_blank">Telegram</a></li>
+      <li><a href="https://github.com/ASHOK-KUMAR-D-FSP" target="_blank">GitHub</a></li>
+    </ul>
+    <section id="contact" class="contact" style="font-family: Arial, sans-serif; max-width: 600px; margin: auto;">
+      <h2 style="margin-bottom: 20px;">Get in touch</h2>
+      <div style="margin-bottom: 20px;">
+        <p><strong>📞 Phone:</strong> <a href="tel:+919360336302">+919360336302</a> (WhatsApp)</p>
+        <p><strong>✉ Email:</strong> <a href="mailto:dashokkumar2905@gmail.com">dashokkumar2905@gmail.com</a></p>
+        <p><strong>📍 Location:</strong> Chennai,Tamilnadu </p>
+      </div>
+      <form style="display: flex; flex-direction: column; gap: 10px;">
+        <label>
+          <h2>If you want to Contact me</h2>
+          <strong>Full Name<span style="color: red;">*</span></strong>
+          <input type="text" name="fullname" placeholder="Enter your name" required
+            style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;">
+        </label>
+        <label>
+          <strong>Email<span style="color: red;">*</span></strong>
+          <input type="email" name="email" placeholder="Enter your email" required
+            style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;">
+        </label>
+        <label>
+          <strong>Phone<span style="color: red;">*</span></strong>
+          <input type="tel" name="phone" placeholder="Enter mobile no." required
+            style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;">
+        </label>
+        <label>
+          <strong>Messages<span style="color: red;">*</span></strong>
+          <textarea name="message" placeholder="Type here your messages" required
+            style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; height: 100px;"></textarea>
+        </label>
+        <button type="submit"
+          style="width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Submit</button>
+      </form>
+    </section>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <!-- <a href="#portfolio">Portfolio</a> -->
+    </div>
+    <p>© 2025 Ashok Kumar D. All Rights Reserved.</p>
+  </footer>
+  <script>
+    // Smooth scroll for navigation links
+    document.querySelectorAll('nav ul li a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+
+</html>
