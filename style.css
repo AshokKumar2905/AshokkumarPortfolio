@@ -63,6 +63,14 @@ nav a {
   color: #f1f5f9;
 }
 
+/* Mobile menu toggle (hamburger) */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #facc15;
+}
+
 /* Hero Section */
 .hero {
   text-align: center;
@@ -86,7 +94,6 @@ nav a {
   animation: pulse 2s infinite;
   object-fit: fill;
 }
-
 
 @keyframes pulse {
   0%, 100% { transform: scale(0.95); }
@@ -251,7 +258,26 @@ footer {
 
 /* Responsive */
 @media (max-width: 576px) {
-  nav { display: none; }
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #1e293b;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
   .cta { flex-direction: column; }
   .skills-list { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
 }
