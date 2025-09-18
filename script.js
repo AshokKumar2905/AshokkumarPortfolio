@@ -16,7 +16,6 @@ if (typingText) {
 // Scroll Fade-in Effect
 const sections = document.querySelectorAll('.section');
 if (sections.length > 0) {
-
   function revealSections() {
     const triggerBottom = window.innerHeight / 5 * 4;
     sections.forEach(section => {
@@ -30,11 +29,11 @@ if (sections.length > 0) {
   }
 
   window.addEventListener('scroll', revealSections);
-  window.addEventListener('load', revealSections); // Make visible on page load
-  revealSections(); // Initial check
+  window.addEventListener('load', revealSections); 
+  revealSections();
 }
 
-// Dynamic Skills (only if skills-list exists)
+// Dynamic Skills
 const skillsContainer = document.getElementById("skills-list");
 if (skillsContainer) {
   const skills = [
@@ -64,7 +63,7 @@ if (skillsContainer) {
   });
 }
 
-// Dynamic Projects (only if projects-list exists)
+// Dynamic Projects
 const projectsContainer = document.getElementById("projects-list");
 if (projectsContainer) {
   const projects = [
@@ -77,5 +76,15 @@ if (projectsContainer) {
     div.innerHTML = `<strong>${project.title}</strong>: ${project.description} 
                      (<a href="${project.link}" target="_blank">View</a>)`;
     projectsContainer.appendChild(div);
+  });
+}
+
+// Mobile Menu Toggle
+const toggleBtn = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('header nav');
+
+if (toggleBtn) {
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
   });
 }
