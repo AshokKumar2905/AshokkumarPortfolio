@@ -1,103 +1,164 @@
-// Typing Effect (only on Hero page)
-const typingText = document.getElementById("typing-text");
-if (typingText) {
-  const text = "Hello, I'm Ashokkumar D";
-  let index = 0;
-  function typeEffect() {
-    if (index < text.length) {
-      typingText.textContent += text.charAt(index);
-      index++;
-      setTimeout(typeEffect, 100);
+// ===== Typing Effect =====
+const typedTextElement = document.getElementById("typed-text");
+const phrases = [
+  "Python Full Stack Developer",
+  "DevOps & Cloud Learner",
+  "Problem Solver",
+  "Loves Explaining Tech Simply"
+];
+
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function type() {
+  const currentPhrase = phrases[phraseIndex];
+  if (!typedTextElement) return;
+
+  if (!isDeleting) {
+    typedTextElement.textContent = currentPhrase.slice(0, charIndex + 1);
+    charIndex++;
+
+    if (charIndex === currentPhrase.length) {
+      isDeleting = true;
+      setTimeout(type, 1100);
+      return;
+    }
+  } else {
+    typedTextElement.textContent = currentPhrase.slice(0, charIndex - 1);
+    charIndex--;
+
+    if (charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
     }
   }
-  window.addEventListener('load', typeEffect);
+
+  const speed = isDeleting ? 60 : 120;
+  setTimeout(type, speed);
 }
 
-// Scroll Fade-in Effect
-const sections = document.querySelectorAll('.section');
-if (sections.length > 0) {
-  function revealSections() {
-    const triggerBottom = window.innerHeight / 5 * 4;
-    sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top;
-      if (sectionTop < triggerBottom) {
-        section.classList.add('visible');
-      } else {
-        section.classList.remove('visible');
-      }
-    });
-  }
+type();
 
-  window.addEventListener('scroll', revealSections);
-  window.addEventListener('load', revealSections);
-  revealSections();
-}
+// ===== Dynamic Skills =====
+const skills = [
+  "Python",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Flask / Django (learning)",
+  "Git & GitHub",
+  "Linux Basics",
+  "Docker (learning)",
+  "AWS (learning)",
+  "SQL / Databases",
+  "Problem Solving",
+  "Agile Basics"
+];
 
-// Dynamic Skills
-const skillsContainer = document.getElementById("skills-list");
+const skillsContainer = document.getElementById("skills-container");
+
 if (skillsContainer) {
-  const skills = [
-    { name: "Python", img: "./assets/python.png", description: "Full-stack apps, automation, ML/AI basics" },
-    { name: "JavaScript", img: "./assets/js.png", description: "Dynamic web pages, Node.js, DOM manipulation" },
-    { name: "HTML5", img: "./assets/html.png", description: "Semantic markup for web pages" },
-    { name: "CSS3", img: "./assets/css.png", description: "Styling web pages, Flexbox, Grid, Animations" },
-    { name: "Linux", img: "./assets/linux.webp", description: "System management, shell scripting, cron jobs" },
-    { name: "Kubernetes", img: "./assets/kubernetes.jpeg", description: "Container orchestration, pods, deployments" },
-    { name: "AWS", img: "./assets/aws.webp", description: "Cloud services, EC2, S3, VPC, IAM" },
-    { name: "Git", img: "./assets/git.png", description: "Version control, branching, collaboration" },
-    { name: "Agile", img: "./assets/agile.jpeg", description: "Scrum, sprints, project management" },
-    { name: "SQL", img: "./assets/sql.png", description: "Database queries, joins, data manipulation" }
-  ];
-
-  skills.forEach(skill => {
-    const div = document.createElement("div");
-    div.classList.add("skill-card");
-    div.innerHTML = `
-      <div class="skill-img-container">
-        <img src="${skill.img}" alt="${skill.name}">
-        <div class="skill-description">${skill.description}</div>
-      </div>
-      <span>${skill.name}</span>
-    `;
-    skillsContainer.appendChild(div);
+  skills.forEach((skill) => {
+    const chip = document.createElement("span");
+    chip.className = "skill-chip";
+    chip.textContent = skill;
+    skillsContainer.appendChild(chip);
   });
 }
 
-// Dynamic Projects
-const projectsContainer = document.getElementById("projects-list");
+// ===== Dynamic Projects =====
+const projects = [
+  {
+    title: "Personal Portfolio Website",
+    description:
+      "Responsive portfolio built with HTML, CSS, and JavaScript to showcase my skills, projects, and experience.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://github.com/AshokKumar2905/AshokkumarPortfolio"
+  },
+  {
+    title: "CSVServer Solution",
+    description:
+      "Assignment for Site Reliability Engineer intern: containerized CSV server with Docker, proper logging, and scaling.",
+    tags: ["Docker", "Linux", "Shell", "DevOps"],
+    link: "https://github.com/AshokKumar2905/csvserver-solution"
+  },
+  {
+    title: "Blog Platform (Concept)",
+    description:
+      "A simple blog platform idea to post articles and notes, focusing on clean structure and readability.",
+    tags: ["Python", "Web", "Learning Project"],
+    link: "#"
+  }
+];
+
+const projectsContainer = document.getElementById("projects-container");
+
 if (projectsContainer) {
-  const projects = [
-    {
-      title: "Portfolio Website",
-      description: "A personal portfolio website showcasing my skills and projects.",
-      link: "https://github.com/AshokKumar2905/AshokkumarPortfolio"
-    },
-    {
-      title: "Blog Platform",
-      description: "A blogging platform with dynamic content.",
-      link: "https://github.com/AshokKumar2905/My-learning"
-    },
-    {
-      title: "CSV Server Solution",
-      description: "A containerized CSV server solution with Docker, focusing on reliability and deployment best practices.",
-      link: "https://github.com/AshokKumar2905/csvserver-solution"
-    }
-  ];
+  projects.forEach((project) => {
+    const card = document.createElement("article");
+    card.className = "project-card";
 
-  projects.forEach(project => {
-    const div = document.createElement("div");
-    div.innerHTML = `<strong>${project.title}</strong>: ${project.description} 
-                     (<a href="${project.link}" target="_blank">View</a>)`;
-    projectsContainer.appendChild(div);
+    card.innerHTML = `
+      <h3>${project.title}</h3>
+      <p>${project.description}</p>
+      <div class="project-tags">
+        ${project.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join("")}
+      </div>
+      ${
+        project.link && project.link !== "#"
+          ? `<a href="${project.link}" target="_blank" rel="noopener noreferrer">View on GitHub →</a>`
+          : ""
+      }
+    `;
+
+    projectsContainer.appendChild(card);
   });
 }
 
-// Mobile Menu Toggle
-const toggleBtn = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('header nav');
+// ===== Mobile Nav Toggle =====
+const navToggle = document.getElementById("nav-toggle");
+const navMenu = document.getElementById("nav-menu");
 
-if (toggleBtn && navMenu) {
-  toggleBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
+if (navToggle && navMenu) {
+  navToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
   });
+
+  document.querySelectorAll(".nav__link").forEach((link) => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("show");
+    });
+  });
+}
+
+// ===== Active Link on Scroll (basic) =====
+const sections = document.querySelectorAll("section[id]");
+
+function onScroll() {
+  const scrollY = window.pageYOffset;
+
+  sections.forEach((current) => {
+    const sectionTop = current.offsetTop - 80;
+    const sectionHeight = current.offsetHeight;
+    const sectionId = current.getAttribute("id");
+
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      document
+        .querySelectorAll(".nav__link")
+        .forEach((link) => link.classList.remove("active"));
+      const activeLink = document.querySelector(
+        `.nav__link[href="#${sectionId}"]`
+      );
+      if (activeLink) activeLink.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", onScroll);
+
+// ===== Footer Year =====
+const yearSpan = document.getElementById("year");
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
 }
