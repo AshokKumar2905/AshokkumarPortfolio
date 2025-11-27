@@ -78,8 +78,8 @@ if (projectsContainer) {
       link: "https://github.com/AshokKumar2905/My-learning"
     },
     {
-      title: "CSV Server Solution",
-      description: "A containerized CSV server solution with Docker, focusing on reliability and deployment best practices.",
+      title: "CSV Server Solution (SRE Assignment)",
+      description: "A production-ready Dockerized CSV server designed as part of a Site Reliability Engineer assignment.",
       link: "https://github.com/AshokKumar2905/csvserver-solution"
     }
   ];
