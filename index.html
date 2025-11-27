@@ -1,182 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashokkumar D | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="shortcut icon" href="assets/avatar.png" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashokkumar Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- ===== NAVBAR ===== -->
-  <header class="header">
-    <nav class="nav container">
-      <a href="#hero" class="nav__logo">Ashok<span>.</span></a>
 
-      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+    <header>
+        <nav>
+            <div class="logo">Ashokkumar</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-      <ul class="nav__menu" id="nav-menu">
-        <li><a href="#hero" class="nav__link active">Home</a></li>
-        <li><a href="#about" class="nav__link">About</a></li>
-        <li><a href="#skills" class="nav__link">Skills</a></li>
-        <li><a href="#projects" class="nav__link">Projects</a></li>
-        <li><a href="#contact" class="nav__link">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero" id="hero">
-    <div class="container hero__content">
-      <div class="hero__text">
-        <p class="hero__hello">Hello 👋, I'm</p>
-        <h1 class="hero__title">Ashokkumar D</h1>
-        <h2 class="hero__subtitle">
-          <span id="typed-text"></span><span class="cursor">|</span>
-        </h2>
-        <p class="hero__desc">
-          Passionate Python Full Stack Developer & DevOps learner,
-          building clean, scalable, and reliable solutions.
-        </p>
-
-        <div class="hero__buttons">
-          <a href="#projects" class="btn primary">View Projects</a>
-          <a href="#contact" class="btn outline">Contact Me</a>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Hello, I'm <span class="name">Ashokkumar</span></h1>
+            <p class="typing">I'm a <span id="typing"></span></p>
+            <a href="projects.html" class="btn">View Projects</a>
         </div>
+    </section>
 
-        <div class="hero__socials">
-          <a href="https://github.com/AshokKumar2905" target="_blank">GitHub</a>
-          <!-- Add more: LinkedIn, etc. when ready -->
-        </div>
-      </div>
-
-      <div class="hero__image">
-        <div class="hero__card">
-          <img src="assets/avatar.png" alt="Profile" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ABOUT SECTION ===== -->
-  <section class="section" id="about">
-    <div class="container section__content">
-      <div class="section__header">
-        <h2>About Me</h2>
-        <p>Who I am & what I do</p>
-      </div>
-
-      <div class="about__grid">
-        <div class="about__text">
-          <p>
-            I'm <strong>Ashokkumar D</strong>, a Computer Science Engineer and
-            Python Full Stack Developer. I have hands-on experience with
-            frontend, backend, and hosting, and I'm also learning DevOps tools
-            like Docker, Linux, Git, and AWS.
-          </p>
-          <p>
-            I enjoy building practical projects, understanding how systems work
-            end-to-end, and explaining concepts in a very simple way to others.
-          </p>
-          <p>
-            Currently focusing on <strong>Python, Web Development, AWS, and DevOps</strong>.
-          </p>
-        </div>
-
-        <div class="about__info">
-          <ul>
-            <li><span>Degree:</span> B.E. Computer Science and Engineering</li>
-            <li><span>College:</span> Karpaga Vinayaga College of Engineering & Technology</li>
-            <li><span>Location:</span> Mannargudi, Thiruvarur (Native)</li>
-            <li><span>Interests:</span> Coding, Cricket, Music</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SKILLS SECTION ===== -->
-  <section class="section section--alt" id="skills">
-    <div class="container section__content">
-      <div class="section__header">
-        <h2>Skills</h2>
-        <p>What I work with</p>
-      </div>
-
-      <div class="skills__chips" id="skills-container">
-        <!-- Filled dynamically from script.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROJECTS SECTION ===== -->
-  <section class="section" id="projects">
-    <div class="container section__content">
-      <div class="section__header">
-        <h2>Projects</h2>
-        <p>Things I've built</p>
-      </div>
-
-      <div class="projects__grid" id="projects-container">
-        <!-- Filled dynamically from script.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT SECTION ===== -->
-  <section class="section section--alt" id="contact">
-    <div class="container section__content">
-      <div class="section__header">
-        <h2>Contact</h2>
-        <p>Let’s connect</p>
-      </div>
-
-      <div class="contact__grid">
-        <div class="contact__info">
-          <p>
-            I'm open to internships, full-time roles, and collaboration on
-            interesting projects. Feel free to reach out!
-          </p>
-          <ul>
-            <li><strong>Email:</strong> your-email@example.com</li>
-            <li><strong>GitHub:</strong> github.com/AshokKumar2905</li>
-          </ul>
-        </div>
-
-        <form class="contact__form">
-          <div class="form__group">
-            <label for="name">Name</label>
-            <input id="name" type="text" placeholder="Your name" required />
-          </div>
-          <div class="form__group">
-            <label for="email">Email</label>
-            <input id="email" type="email" placeholder="Your email" required />
-          </div>
-          <div class="form__group">
-            <label for="message">Message</label>
-            <textarea id="message" rows="4" placeholder="Your message" required></textarea>
-          </div>
-          <button type="submit" class="btn primary" disabled>
-            Send (Static Demo)
-          </button>
-          <p class="form__note">
-            * This form is static. You can connect it to a backend or service
-            like Formspree / EmailJS later.
-          </p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container footer__content">
-      <p>© <span id="year"></span> Ashokkumar D. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
