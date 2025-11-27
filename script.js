@@ -5,23 +5,22 @@ if (typingText) {
   let index = 0;
   function typeEffect() {
     if (index < text.length) {
-      typingText.innerHTML += text.charAt(index);
+      typingText.textContent += text.charAt(index);
       index++;
       setTimeout(typeEffect, 100);
     }
   }
-  window.onload = typeEffect;
+  window.addEventListener('load', typeEffect);
 }
 
 // Scroll Fade-in Effect
 const sections = document.querySelectorAll('.section');
 if (sections.length > 0) {
-
   function revealSections() {
     const triggerBottom = window.innerHeight / 5 * 4;
     sections.forEach(section => {
       const sectionTop = section.getBoundingClientRect().top;
-      if(sectionTop < triggerBottom){
+      if (sectionTop < triggerBottom) {
         section.classList.add('visible');
       } else {
         section.classList.remove('visible');
@@ -30,11 +29,11 @@ if (sections.length > 0) {
   }
 
   window.addEventListener('scroll', revealSections);
-  window.addEventListener('load', revealSections); // Make visible on page load
-  revealSections(); // Initial check
+  window.addEventListener('load', revealSections);
+  revealSections();
 }
 
-// Dynamic Skills (only if skills-list exists)
+// Dynamic Skills
 const skillsContainer = document.getElementById("skills-list");
 if (skillsContainer) {
   const skills = [
@@ -64,12 +63,25 @@ if (skillsContainer) {
   });
 }
 
-// Dynamic Projects (only if projects-list exists)
+// Dynamic Projects
 const projectsContainer = document.getElementById("projects-list");
 if (projectsContainer) {
   const projects = [
-    { title: "Portfolio Website", description: "A personal portfolio website showcasing my skills and projects.", link: "https://github.com/AshokKumar2905/AshokkumarPortfolio" },
-    { title: "Blog Platform", description: "A blogging platform with dynamic content.", link: "https://github.com/AshokKumar2905/My-learning" }
+    {
+      title: "Portfolio Website",
+      description: "A personal portfolio website showcasing my skills and projects.",
+      link: "https://github.com/AshokKumar2905/AshokkumarPortfolio"
+    },
+    {
+      title: "Blog Platform",
+      description: "A blogging platform with dynamic content.",
+      link: "https://github.com/AshokKumar2905/My-learning"
+    },
+    {
+      title: "CSV Server Solution",
+      description: "A containerized CSV server solution with Docker, focusing on reliability and deployment best practices.",
+      link: "https://github.com/AshokKumar2905/csvserver-solution"
+    }
   ];
 
   projects.forEach(project => {
@@ -77,5 +89,15 @@ if (projectsContainer) {
     div.innerHTML = `<strong>${project.title}</strong>: ${project.description} 
                      (<a href="${project.link}" target="_blank">View</a>)`;
     projectsContainer.appendChild(div);
+  });
+}
+
+// Mobile Menu Toggle
+const toggleBtn = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('header nav');
+
+if (toggleBtn && navMenu) {
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
   });
 }
