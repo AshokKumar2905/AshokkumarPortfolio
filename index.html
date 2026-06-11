@@ -3,38 +3,238 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AshokKumar Portfolio - Home</title>
+  <title>AshokKumar D | DevOps & Cloud Engineer</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-  <!-- Header -->
   <header>
-    <div class="logo"><a href="index.html"><h1>AshokKumar D</h1></a></div>
-    <nav>
-      <a href="about.html">About</a>
-      <a href="skills.html">Skills</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
+    <div class="logo">
+      <a href="#hero"><h1>AshokKumar<span>.dev</span></h1></a>
+    </div>
+    <div class="menu-toggle" id="mobile-menu-btn">☰</div>
+    <nav id="nav-menu">
+      <a href="#about"><i class="fas fa-user-astronaut"></i> About</a>
+      <a href="#skills"><i class="fas fa-tools"></i> Skills</a>
+      <a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a>
+      <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <img src="./assets/AK.jpg" alt="Ashok Kumar Photo">
-    <h1 id="typing-text"></h1>
-    <p>Creative Full Stack Python & DevOps Engineer</p>
-    <div class="cta">
-      <a href="https://drive.google.com/file/d/1acfoiTigh17u9CN3li9g7_OAJbXMVRps/view?usp=drive_link" target="_blank" class="cv-btn">📄 Download CV</a>
-      <a href="https://github.com/AshokKumar2905/My-learning" target="_blank" class="github-btn">🔗 GitHub - My Learning</a>
-      <a href="https://github.com/AshokKumar2905/AshokkumarPortfolio" target="_blank" class="github-btn">🔗 GitHub - Portfolio</a>
+  <section id="hero" class="hero">
+    <div class="hero-container">
+      <div class="hero-avatar">
+        <img src="./assets/AK.jpg" alt="AshokKumar D">
+      </div>
+      <h1 id="typing-text"></h1>
+      <p class="subtitle">DevOps, Cloud & Python Scripting Engineer</p>
+      
+      <div class="cta">
+        <a href="https://drive.google.com/file/d/1acfoiTigh17u9CN3li9g7_OAJbXMVRps/view?usp=drive_link" target="_blank" class="btn cv-btn">
+          <i class="fas fa-file-alt"></i> Download CV
+        </a>
+        <a href="https://github.com/AshokKumar2905/My-learning" target="_blank" class="btn github-btn">
+          <i class="fab fa-github"></i> GitHub - Learning Roadmap
+        </a>
+        <a href="https://github.com/AshokKumar2905/AshokkumarPortfolio" target="_blank" class="btn github-btn">
+          <i class="fas fa-code-branch"></i> GitHub - Portfolio Code
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <p>
+          I am <strong>Ashok Kumar D</strong>, a passionate <strong>DevOps & Linux Engineer</strong> with hands-on experience in automation, cloud computing, and full-stack development. I specialize in building <strong>CI/CD pipelines</strong>, containerized applications, and infrastructure automation while ensuring <strong>scalable, reliable, and secure systems</strong>.
+        </p>
+        <p>
+          I enjoy tackling complex problems, optimizing infrastructure workflows, and creating <strong>high-performance architectural solutions</strong>. With a strong engineering foundation in <strong>Linux administration</strong> and modern DevOps practices, I thrive in dynamic environments and continuously focus on implementing cloud-native methodologies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section alt-bg">
+    <div class="container">
+      <h2 class="section-title">Technical Skillset</h2>
+      <div class="skills-grid">
+        
+        <div class="skill-card">
+          <div class="skill-icon-container">
+            <i class="fab fa-python" style="color: #3776AB;"></i>
+          </div>
+          <h3>Python</h3>
+          <p>Full-stack applications, automation scripts, and ML/AI basics.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon-container">
+            <i class="fab fa-aws" style="color: #FF9900;"></i>
+          </div>
+          <h3>AWS</h3>
+          <p>Cloud services, EC2 instances, S3 storage buckets, VPC configurations, and IAM security.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon-container">
+            <i class="fas fa-dharmachakra" style="color: #326CE5;"></i>
+          </div>
+          <h3>Kubernetes</h3>
+          <p>Container orchestration architecture, pod management, and scalable deployments.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon-container">
+            <i class="fab fa-linux" style="color: #FCC624;"></i>
+          </div>
+          <h3>Linux</h3>
+          <p>System administration, shell scripting automation, and automated cron jobs.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon-container">
+            <i class="fab fa-git-alt" style="color: #F05032;"></i>
+          </div>
+          <h3>Git</h3>
+          <p>Distributed version control, branch management strategies, and pipeline collaboration.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon-container">
+            <i class="fas fa-database" style="color: #00758F;"></i>
+          </div>
+          <h3>SQL</h3>
+          <p>Relational database queries, complex dataset joins, and data manipulation.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon-container">
+            <i class="fab fa-js" style="color: #F7DF1E;"></i>
+          </div>
+          <h3>JavaScript</h3>
+          <p>Dynamic interactive web pages, Node.js applications, and browser DOM manipulation.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon-container">
+            <i class="fab fa-html5" style="color: #E34F26;"></i>
+          </div>
+          <h3>HTML5 & CSS3</h3>
+          <p>Semantic document structures, Flexbox/Grid modern layouts, and cross-device responsive design.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon-container">
+            <i class="fas fa-users" style="color: #00A3E0;"></i>
+          </div>
+          <h3>Agile Methodologies</h3>
+          <p>Scrum principles, engineering sprint cycles, and structured project lifecycle tracking.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Core Focus Projects</h2>
+      <div class="projects-grid">
+        
+        <div class="project-card">
+          <div class="project-info">
+            <h3>Portfolio Website</h3>
+            <p>A professional, highly responsive personal portfolio website built to showcase my core engineering skills, technical progression paths, and deployment projects.</p>
+            <div class="project-tags">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+            </div>
+            <a href="https://github.com/AshokKumar2905/AshokkumarPortfolio" target="_blank" class="project-link-btn">
+              <i class="fab fa-github"></i> View Project Source
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-info">
+            <h3>Blog Platform</h3>
+            <p>A dynamic content blogging platform developed to document and share structured technical learning pathways, cloud studies, and scripting configurations.</p>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>Web Architecture</span>
+              <span>Git</span>
+            </div>
+            <a href="https://github.com/AshokKumar2905/My-learning" target="_blank" class="project-link-btn">
+              <i class="fab fa-github"></i> View Project Source
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-info">
+            <h3>CSV Server Solution (SRE Assignment)</h3>
+            <p>A production-ready, containerized CSV server architecture designed as part of an infrastructure engineering assessment, utilizing strict container compilation rules and background metric streaming.</p>
+            <div class="project-tags">
+              <span>Docker</span>
+              <span>Prometheus Integration</span>
+              <span>Linux Shell</span>
+            </div>
+            <a href="https://github.com/AshokKumar2905/csvserver-solution" target="_blank" class="project-link-btn">
+              <i class="fab fa-github"></i> View Project Source
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section alt-bg">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="contact-prompt">Have a technical project, an open role, or just want to collaborate? Drop a message!</p>
+      
+      <div class="contact-direct">
+        <p>
+          <a href="tel:+919360336302" class="contact-link"><i class="fas fa-phone-alt"></i> +91 9360336302</a>
+          <span class="separator">|</span> 
+          <a href="mailto:dashokkumar2905@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> dashokkumar2905@gmail.com</a>
+        </p>
+      </div>
+
+      <div class="social-grid">
+        <a href="https://www.linkedin.com/in/ashokkumar2905/" target="_blank" class="social-icon-btn linkedin" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i> LinkedIn
+        </a>
+        <a href="https://github.com/AshokKumar2905/My-learning" target="_blank" class="social-icon-btn github" title="GitHub Learning">
+          <i class="fab fa-github"></i> GitHub Learning
+        </a>
+        <a href="https://t.me/Ashok_2905" target="_blank" class="social-icon-btn telegram" title="Telegram">
+          <i class="fab fa-telegram-plane"></i> Telegram
+        </a>
+        <a href="https://twitter.com/AK290545" target="_blank" class="social-icon-btn twitter" title="Twitter">
+          <i class="fab fa-x-twitter"></i> Twitter
+        </a>
+        <a href="https://www.instagram.com/ashok_6876?igsh=cGEybHJmZTJiN3c3 " target="_blank" class="social-icon-btn instagram" title="Instagram">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+      </div>
+
+      <form action="#" method="POST" class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="btn submit-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
   <footer>
-    <p>© 2025 Ashok Kumar D. All Rights Reserved.</p>
+    <p>© 2026 AshokKumar D. Built for speed and stability.</p>
   </footer>
 
   <script src="script.js"></script>

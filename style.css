@@ -1,4 +1,6 @@
-/* Reset & General */
+/* ==========================================================================
+   1. Reset & General Foundations
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -8,27 +10,69 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #0f172a;
-  color: #e0e7ff;
+  background-color: #0f172a; /* Slate 900 */
+  color: #e0e7ff; /* Indigo 100 */
   line-height: 1.6;
   overflow-x: hidden;
 }
 
 h1, h2, h3 {
-  color: #facc15;
+  color: #facc15; /* Yellow 400 */
 }
 
 a {
   text-decoration: none;
-  color: #a5b4fc;
-  transition: 0.3s;
+  color: #a5b4fc; /* Indigo 300 */
+  transition: all 0.3s ease;
 }
 
 a:hover {
   color: #facc15;
 }
 
-/* Header */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Alternate Background Utility for Sectioning */
+.alt-bg {
+  background-color: #1e293b; /* Slate 800 */
+}
+
+/* Shared Section Header Formatting */
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #facc15;
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+}
+
+/* Buttons Engine */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   2. Navigation Header Configuration
+   ========================================================================== */
 header {
   display: flex;
   justify-content: space-between;
@@ -38,18 +82,33 @@ header {
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(224, 231, 255, 0.1);
 }
 
 header .logo h1 {
   font-size: 1.8rem;
   font-weight: bold;
+  color: #f1f5f9;
   animation: slide-in 1s ease-out forwards;
+}
+
+header .logo span {
+  color: #facc15;
 }
 
 @keyframes slide-in {
   from { transform: translateX(-100%); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
+}
+
+/* Mobile Toggle Hamburger Icon */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #facc15;
+  transition: transform 0.3s;
 }
 
 nav {
@@ -61,40 +120,67 @@ nav a {
   font-weight: 600;
   text-transform: uppercase;
   color: #f1f5f9;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-/* Hero Section */
+nav a:hover {
+  color: #facc15;
+}
+
+/* ==========================================================================
+   3. Hero Section Configuration
+   ========================================================================== */
 .hero {
   text-align: center;
-  padding: 5rem 2rem;
-  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #1e40af, #3b82f6); /* Professional Royal Blue */
   color: #f1f5f9;
-  position: relative;
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
-.hero img {
+.hero-container {
+  max-width: 800px;
+  width: 100%;
+}
+
+.hero .hero-avatar img {
   width: 180px;
   height: 180px;
-  border-radius: 0%;
+  border-radius: 50%; /* Modern circle profiling */
   border: 6px solid #facc15;
-  margin: 0 auto 1rem auto; 
+  margin: 0 auto 1.5rem auto; 
   display: block;           
   animation: pulse 2s infinite;
-  object-fit: fill;
+  object-fit: cover;
 }
 
-
 @keyframes pulse {
-  0%, 100% { transform: scale(0.95); }
-  50% { transform: scale(1); }
+  0%, 100% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.4); }
+  50% { transform: scale(1); box-shadow: 0 0 20px 10px rgba(250, 204, 21, 0.2); }
+}
+
+.hero h1 {
+  min-height: 3.5rem; /* Prevents text shifts while typing */
+  font-size: 3rem;
+  color: #facc15;
+  margin-bottom: 0.5rem;
+}
+
+.hero .subtitle {
+  font-size: 1.4rem;
+  color: #e0e7ff;
+  font-weight: 500;
+  margin-bottom: 2rem;
 }
 
 .cta {
-  margin-top: 1rem;
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -104,154 +190,374 @@ nav a {
 .cv-btn, .github-btn {
   background-color: #2563eb;
   color: #f1f5f9;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .cv-btn:hover, .github-btn:hover {
-  background-color: #a5b4fc;
+  background-color: #facc15;
   color: #0f172a;
-  transform: scale(1.1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Sections */
+/* ==========================================================================
+   4. Universal Section Structural Framework
+   ========================================================================== */
 .section {
-  padding: 4rem 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  min-height: calc(100vh - 120px);
+  padding: 6rem 2rem;
+  min-height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease-out;
-  text-align: center;
 }
 
+/* Scroll Visibility Trigger Rule */
 .section.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.section h2, .section p {
-  text-align: center;
+/* About Layout Profile */
+.about-content {
+  max-width: 850px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+  text-align: justify;
 }
 
-/* Skills Section - grid */
-.skills-list {
+.about-content p {
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   5. Technical Skills Complex Grid
+   ========================================================================== */
+.skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
 .skill-card {
   background: #1e293b;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-  padding: 20px 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 2.5rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+  gap: 1rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   text-align: center;
+  border: 1px solid rgba(224, 231, 255, 0.05);
 }
 
 .skill-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   background: #273449;
+  border-color: #facc15;
 }
 
-.skill-img-container {
-  position: relative;
-  width: 60px;
-  height: 60px;
-}
-
-.skill-img-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.skill-description {
-  position: absolute;
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(250, 204, 21, 0.95);
-  color: #0f172a;
-  padding: 0.5rem 0.9rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s, transform 0.3s;
-  z-index: 10;
-}
-
-.skill-img-container:hover .skill-description {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-6px);
-}
-
-/* Projects Section */
-#projects-list div {
-  background: #1e293b;
-  padding: 0.8rem;
+.skill-icon-container {
+  font-size: 3.5rem;
   margin-bottom: 0.5rem;
-  border-radius: 5px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  color: #f1f5f9;
-}
-
-#projects-list div:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.5);
-}
-
-/* Contact Section */
-.contact {
-  text-align: center;
-  padding: 3rem 2rem;
-  background: linear-gradient(to bottom right, #1e3a8a, #1e293b);
-  min-height: calc(100vh - 120px);
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
-.contact a {
-  display: inline-block;
-  margin: 0.3rem 0.5rem;
-  font-weight: bold;
-  color: #a5b4fc;
+.skill-card h3 {
+  font-size: 1.4rem;
+  color: #f8fafc;
 }
 
-.contact a:hover {
+.skill-card p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   6. Projects Cluster Architecture
+   ========================================================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.project-card {
+  background: #1e293b;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(224, 231, 255, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  border-color: #facc15;
+}
+
+.project-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-info h3 {
+  font-size: 1.4rem;
   color: #facc15;
+  margin-bottom: 1rem;
 }
 
-/* Footer */
+.project-info p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+/* Technology Badges Framework */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  margin-bottom: 1.5rem;
+}
+
+.project-tags span {
+  background-color: rgba(250, 204, 21, 0.1);
+  color: #facc15;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(250, 204, 21, 0.2);
+}
+
+/* Code Link Execution Buttons */
+.project-link-btn {
+  background: #2563eb;
+  color: #f1f5f9;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.project-link-btn:hover {
+  background: #1d4ed8;
+  color: #f1f5f9;
+}
+
+/* ==========================================================================
+   7. Contact Form Interface
+   ========================================================================== */
+.contact-prompt {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin: -2rem auto 2.5rem auto;
+  max-width: 600px;
+}
+
+/* Direct Channels Routing Ribbon */
+.contact-direct {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.15rem;
+}
+
+.contact-link {
+  color: #facc15;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 1rem;
+}
+
+.contact-link:hover {
+  color: #e0e7ff;
+}
+
+.separator {
+  color: #475569;
+}
+
+/* Social Icon Button Matrix */
+.social-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 750px;
+  margin: 0 auto 3rem auto;
+}
+
+.social-icon-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon-btn:hover {
+  transform: translateY(-3px);
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Branded Network Colors */
+.linkedin { background-color: #0077b5; }
+.linkedin:hover { background-color: #005987; }
+.github { background-color: #24292e; }
+.github:hover { background-color: #171a1d; }
+.telegram { background-color: #0088cc; }
+.telegram:hover { background-color: #006699; }
+.twitter { background-color: #1da1f2; }
+.twitter:hover { background-color: #0c85d0; }
+.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.instagram:hover { filter: brightness(1.1); }
+
+/* Form Field Implementations */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  background-color: #0f172a;
+  border: 1px solid rgba(224, 231, 255, 0.1);
+  border-radius: 6px;
+  color: #f8fafc;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #facc15;
+}
+
+.contact-form .submit-btn {
+  background-color: #facc15;
+  color: #0f172a;
+  border: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-form .submit-btn:hover {
+  background-color: #e2b80d;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   8. Footer Formatting
+   ========================================================================== */
 footer {
   background: #0f172a;
-  color: #f1f5f9;
+  color: #94a3b8;
   text-align: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
+  border-top: 1px solid rgba(224, 231, 255, 0.05);
+  font-size: 0.95rem;
 }
 
-/* Responsive */
-@media (max-width: 576px) {
-  nav { display: none; }
-  .cta { flex-direction: column; }
-  .skills-list { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+/* ==========================================================================
+   9. Media Queries & Responsive Infrastructure
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero h1 { font-size: 2.5rem; }
+  .hero .subtitle { font-size: 1.2rem; }
+}
+
+@media (max-width: 768px) {
+  /* Toggle Hamburger View Setup */
+  .menu-toggle {
+    display: block;
+  }
+
+  header {
+    padding: 1rem;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #1e293b;
+    padding: 1.5rem;
+    gap: 1.25rem;
+    border-bottom: 1px solid rgba(224, 231, 255, 0.1);
+    transform: translateY(-150%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+  }
+
+  /* JavaScript Hook Class to Expand Menu */
+  nav.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(224, 231, 255, 0.05);
+  }
+  
+  .hero h1 { font-size: 2.2rem; min-height: auto; }
+  .cta { flex-direction: column; width: 100%; max-width: 320px; margin: 1rem auto 0 auto; }
+  .btn { width: 100%; text-align: center; justify-content: center; }
+  
+  .contact-link { display: flex; justify-content: center; margin: 0.75rem 0; }
+  .separator { display: none; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 4rem 1rem; }
+  .section-title { font-size: 2rem; }
+  .about-content { text-align: left; font-size: 1rem; }
 }
