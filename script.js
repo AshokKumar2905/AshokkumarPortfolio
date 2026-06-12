@@ -1,54 +1,70 @@
-// --- Typing Effect (Hero Section Only) ---
-const typingText = document.getElementById("typing-text");
-if (typingText) {
-  const text = "Hello, I'm Ashokkumar D";
-  let index = 0;
+document.addEventListener("DOMContentLoaded", () => {
   
-  function typeEffect() {
-    if (index < text.length) {
-      typingText.textContent += text.charAt(index);
-      index++;
-      setTimeout(typeEffect, 100);
-    }
-  }
-  window.addEventListener('load', typeEffect);
-}
+  // Element Viewport Intersection Trigger Action
+  const sectionRevealOptions = {
+    threshold: 0.12,
+    rootMargin: "0px 0px -40px 0px"
+  };
 
-// --- Scroll Fade-in Animation Effect ---
-const sections = document.querySelectorAll('.section');
-if (sections.length > 0) {
-  function revealSections() {
-    const triggerBottom = (window.innerHeight / 5) * 4;
-    
-    sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top;
-      if (sectionTop < triggerBottom) {
-        section.classList.add('visible');
-      } else {
-        section.classList.remove('visible');
+  const sectionRevealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("reveal-active");
+        observer.unobserve(entry.target);
       }
     });
-  }
+  }, sectionRevealOptions);
 
-  window.addEventListener('scroll', revealSections);
-  window.addEventListener('load', revealSections);
-  revealSections();
-}
-
-// --- Mobile Navigation Menu Toggle ---
-const toggleBtn = document.getElementById('mobile-menu-btn');
-const navMenu = document.getElementById('nav-menu');
-
-if (toggleBtn && navMenu) {
-  toggleBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
+  const targetSections = document.querySelectorAll(".viewport-section");
+  targetSections.forEach(section => {
+    sectionRevealObserver.observe(section);
   });
 
-  // Auto-close navigation panel overlay when any section link is clicked
-  const navLinks = navMenu.querySelectorAll('a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('show');
+  // Capsule Navigation Active Class Updates
+  const menuLinkElements = document.querySelectorAll(".nav-link");
+  const activeNavigationOptions = {
+    threshold: 0.4,
+    rootMargin: "-10% 0px -50% 0px"
+  };
+
+  const activeNavigationObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const activeSectionId = entry.target.getAttribute("id");
+        menuLinkElements.forEach(link => {
+          if (link.getAttribute("href") === `#${activeSectionId}`) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+      }
     });
+  }, activeNavigationOptions);
+
+  targetSections.forEach(section => {
+    if(section.getAttribute("id")) {
+      activeNavigationObserver.observe(section);
+    }
   });
-}
+
+  // Circular Layout Core Calculator Logic
+  const circularBadgeText = document.querySelector(".rotating-text");
+  if (circularBadgeText) {
+    const rawString = circularBadgeText.innerText;
+    circularBadgeText.innerText = ""; 
+    
+    const totalRotationDegrees = 360;
+    const computedCharacterDelta = totalRotationDegrees / rawString.length;
+
+    for (let index = 0; index < rawString.length; index++) {
+      const characterElement = document.createElement("span");
+      characterElement.innerText = rawString[index];
+      characterElement.style.position = "absolute";
+      characterElement.style.left = "50%";
+      characterElement.style.transformOrigin = "0 50px"; 
+      characterElement.style.transform = `translateX(-50%) rotate(${index * computedCharacterDelta}deg)`;
+      circularBadgeText.appendChild(characterElement);
+    }
+  }
+});
